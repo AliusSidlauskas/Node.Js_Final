@@ -1,0 +1,28 @@
+{
+  "name": "2024.04.18-final-node",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Final Node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "keywords": [
+    "Final"
+  ],
+  "author": "Alius",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.2",
+    "nodemon": "^3.1.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  }
+}
