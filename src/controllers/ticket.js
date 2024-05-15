@@ -42,3 +42,14 @@ export const PURCHASE_TICKET = async (req, res) => {
     return res.status(500).json({ error: "Failed to purchase ticket" });
   }
 };
+
+export const GET_ALL_TICKETS = async (req, res) => {
+  try{
+    const createdTickets = await TicketModel.find()
+
+    return res.status(200).json({createdTickets:createdTickets})
+  } catch(err) {
+    console.log(err);
+    return res.status(500).json({message:"error"})
+  }
+}

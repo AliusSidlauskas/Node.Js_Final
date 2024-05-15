@@ -1,7 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
+import mongoose from 'mongoose';
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import UserModel from "../models/user.js";
+import TicketModel from "../models/ticket.js";
 
 export const CREATE_USER = async (req, res) => {
   try {
@@ -145,3 +147,30 @@ export const LOOK_UP_USER_BY_ID = async (req, res) => {
     return res.status(500).json({ message: "Error appeared" });
   }
 };
+
+
+// export const LOOK_UP_USER_WITH_TICKETS = async (req, res) => {
+//   const userId = req.params.userId; 
+//   try {
+//     const userWithTickets = await UserModel.aggregate([
+//       { $match: { _id: mongoose.Types.ObjectId(userId) } }, 
+//       {
+//         $lookup: {
+//           from: 'tickets', 
+//           localField: 'purchasedTickets',
+//           foreignField: '_id',
+//           as: 'bought_tickets'
+//         }
+//       }
+//     ]);
+
+//     if (!userWithTickets || userWithTickets.length === 0) {
+//       return res.status(404).json({ message: 'User not found or has no tickets' });
+//     }
+
+//     return res.status(200).json({ user: userWithTickets[0] });
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ error: 'Failed to retrieve user with tickets' });
+//   }
+// };

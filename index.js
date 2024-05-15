@@ -6,9 +6,11 @@ import "dotenv/config";
 import userRoutes from "./src/routes/user.js"
 import ticketRoutes from "./src/routes/ticket.js"
 const app = express();
+import cors from "cors";
 
 app.use(express.json());
 
+app.use(cors())
 mongoose
   .connect(process.env.MONGO_CONNECTION)
   .then(() => console.log("connected to Db"))
